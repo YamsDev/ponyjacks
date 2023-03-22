@@ -1,18 +1,31 @@
 <?php
-
+    include("./src/roll.php");
+    include("./src/horse.php");
+    
+    //__construct($life, $speed, $attack, $defence, $reroll, $dodge, $mythic, $dubs)
+    $test = new Combatant(10,10,2,1,0,0,0,0);
+    
+    $test->takeDamage(2);
+    echo $test->life."/".$test->base_life;
+    $test->life = 5;
+    echo $test->life;
     //get battle type
     $type = $_POST['type'];
     
     //get teams
-    $team[0] = $_POST['team_1'];
-    $team[1] = $_POST['team_2'];
+    $tempTeam = explode(",",$_POST['team1']);
+    $team[0] = new Team($tempTeam);
+    $tempTeam = explode(",",$_POST['team2']);
+    $team[1] = new Team($tempTeam);
     
+    //arena
     $arena = $_POST['arena'];
     
     //round clock
     $continue = true;
     do {
         //speed
+        
         //super check
         //bonus calcs
         //check for rerolls
@@ -42,6 +55,7 @@
         //compute damage, min of 1
         
         //apply damage
+        $continue = false;
         }
 
         
