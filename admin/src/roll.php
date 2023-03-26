@@ -9,7 +9,7 @@
     }
     
     function superCheck($rolls){
-        $num = $rolls.length;
+        $num = count($rolls);
         for($i = 1; $i < $num; $i ++){
             if ($rolls[0] == $rolls[$i]){
                 $super = true;
